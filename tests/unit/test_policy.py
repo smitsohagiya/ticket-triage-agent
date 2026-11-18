@@ -51,3 +51,13 @@ def test_small_refunds_are_routed_automatically() -> None:
 def test_largest_amount() -> None:
     assert largest_amount("paid $49 twice, then $1,200.50") == 1200.5
     assert largest_amount("no money here") == 0.0
+
+
+def test_security_signals_force_a_review_even_when_the_model_disagrees() -> None:
+    reasons = review_reasons(
+        ticket("Our security team needs your SOC 2 report."),
+        decision(Category.BILLING, Priority.LOW, 1.0),
+        CLEAN,
+        0.7,
+    )
+    assert reasons == ["security signals: compliance_request"]

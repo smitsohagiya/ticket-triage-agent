@@ -6,7 +6,7 @@ ticket itself. Ticket text can make a review more likely, never less likely.
 
 import re
 
-from triage_agent.guardrails import InjectionCheck
+from triage_agent.guardrails import InjectionCheck, security_signals
 from triage_agent.models import Category, Priority, Ticket, TriageDecision
 
 REFUND_LIMIT = 500
@@ -31,6 +31,8 @@ def review_reasons(
         reasons.append("possible prompt injection: " + ", ".join(injection.signals))
     if decision.category is Category.SECURITY:
         reasons.append("security ticket")
+    elif signals := security_signals(ticket.text):
+        reasons.append("security signals: " + ", ".join(signals))
     if decision.priority is Priority.URGENT:
         reasons.append("urgent priority")
     if decision.confidence < threshold:
