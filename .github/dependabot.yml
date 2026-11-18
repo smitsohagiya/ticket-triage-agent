@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # Build and runtime stages must use the same Python version, so upgrade both by hand.
+      - dependency-name: python
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
