@@ -14,3 +14,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Rules baseline and an OpenAI-compatible LLM classifier with a strict JSON schema.
 - Eval suite with safety gates (`triage eval --gate`), run in CI.
 - CLI (`run`, `pending`, `review`, `eval`, `serve`), HTTP API and OpenTelemetry tracing.
+- Eval results for a local `qwen2.5:3b` classifier through Ollama.
+
+### Fixed
+
+- A weaker classifier could let security tickets skip review. Deterministic security signals now force a review whatever category the model proposes (#1).
