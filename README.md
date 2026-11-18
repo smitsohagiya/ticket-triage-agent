@@ -6,7 +6,7 @@ A support-ticket triage agent built with LangGraph. It redacts personal data, fl
 
 ## Why
 
-Most agent demos show the happy path. In production the hard parts are the edges: personal data in the input, customers (or attackers) writing instructions into the text, and knowing when the agent must not act on its own. This repo is a small, complete version of the pattern I use at work on a healthcare AI pipeline: structured outputs, fixed thresholds and a human approval step before anything reaches a person. Here it is applied to support tickets.
+Most agent demos show the happy path. In production the hard parts are the edges: personal data in the input, customers (or attackers) writing instructions into the text, and knowing when the agent must not act on its own. This repo is a small, complete agent that handles those edges with structured outputs, fixed thresholds and a human approval step, applied to support tickets for a fictional invoicing app.
 
 ## How it works
 
