@@ -6,6 +6,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-19
+
 ### Added
 
 - LangGraph workflow: screen, classify, decide, human review (interrupt with SQLite checkpoints) and act.
