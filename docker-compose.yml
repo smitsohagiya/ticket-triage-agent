@@ -1,0 +1,7 @@
+# Jaeger receives OpenTelemetry traces over OTLP/HTTP and shows them at http://localhost:16686
+services:
+  jaeger:
+    image: jaegertracing/jaeger:2.1.0
+    ports:
+      - "16686:16686"
+      - "4318:4318"
